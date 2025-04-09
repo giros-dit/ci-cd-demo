@@ -1,0 +1,36 @@
+name: Package and publish Helm Chart
+
+# Trigger the workflow on release creation for the main branch:
+on:
+  release:
+    types: [released]
+
+jobs:
+  package_and_publish_helm_chart:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout repository:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # Set up Helm CLI:
+    - name: Set up Helm CLI
+      uses: azure/setup-helm@v4.2.0
+      with:
+        version: latest
+
+    # Package Helm Chart:
+    - name: Package Helm Chart
+      run: helm package ./helm --destination ./packages
+
+    # Create Helm repository index:
+    - name: Create Helm repository index
+      run: helm repo index ./packages --url https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+
+    # Publish Helm package to GitHub Pages:
+    - name: Publish Helm package to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./packages
