@@ -3,12 +3,12 @@ entries:
   ci-cd-demo:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-04-09T10:39:23.548946011Z"
+    created: "2025-04-09T14:05:13.537452262Z"
     description: GIROS CI/CD Demo - A Helm chart for Kubernetes
-    digest: 5dc721fdb15b992e820458aad38267459d45e86e4da1be7a8fc4466defe23e9e
+    digest: bcfe1dc1d28b173a7cde9856343460c15db96dd3861f6cc7b051656443050ec1
     name: ci-cd-demo
     type: application
     urls:
     - https://giros-dit.github.io/ci-cd-demo/ci-cd-demo-1.0.0.tgz
     version: 1.0.0
-generated: "2025-04-09T10:39:23.548448836Z"
+generated: "2025-04-09T14:05:13.536939407Z"
