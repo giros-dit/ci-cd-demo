@@ -1,0 +1,7 @@
+services:
+  ci-cd-demo:
+    image: ghcr.io/giros-dit/ci-cd-demo:1.0.0
+    hostname: ci-cd-demo
+    container_name: ci-cd-demo
+    ports:
+      - "58888:8080"
